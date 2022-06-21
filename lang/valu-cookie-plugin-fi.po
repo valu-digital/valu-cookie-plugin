@@ -1,0 +1,438 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Valu Cookie Plugin\n"
+"POT-Creation-Date: 2021-12-17 08:59+0200\n"
+"PO-Revision-Date: 2021-12-17 09:22+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: valu-cookie-plugin.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: includes/class-valu-cookie-dashboard.php:64
+#: includes/class-valu-cookie-dashboard.php:72
+#: includes/class-valu-cookie-dashboard.php:75
+#: includes/class-valu-cookie-plugin.php:368
+#: includes/class-valu-cookie-plugin.php:373
+msgid "Error while fetching information"
+msgstr "Virhe noudettaessa tietoja"
+
+#: includes/class-valu-cookie-dashboard.php:99
+#: includes/class-valu-cookie-dashboard.php:101
+#: includes/class-valu-cookie-dashboard.php:103
+#, php-format
+msgid "%d days"
+msgstr "%d päivää"
+
+#: includes/class-valu-cookie-dashboard.php:213
+msgid "How many has selected only necessary cookies?"
+msgstr "Kuinka moni on valinnut vain välttämättömät evästeet?"
+
+#: includes/class-valu-cookie-dashboard.php:217
+#: includes/class-valu-cookie-plugin.php:455
+msgid "Get"
+msgstr "Hae"
+
+#: includes/class-valu-cookie-plugin-settings.php:276
+#: includes/class-valu-cookie-plugin-settings.php:277
+msgid "Valu Cookie Plugin Settings"
+msgstr "Valu Cookie Plugin -asetukset"
+
+#: includes/class-valu-cookie-plugin-settings.php:295
+msgid "Settings"
+msgstr "Asetukset"
+
+#: includes/class-valu-cookie-plugin-settings.php:309
+msgid "Cookiebot API Key"
+msgstr "Cookiebot API -avain"
+
+#: includes/class-valu-cookie-plugin-settings.php:310
+msgid ""
+"The secret API key for your Cookiebot account (available under the menu "
+"point \"Settings\" and the tab \"Your scripts\" on your Cookiebot account)."
+msgstr ""
+"Cookiebot-tilisi salainen API-avain (saatavilla Cookiebot-tilisi "
+"valikkokohdasta “Setting”s ja välilehdestä “Your scripts“)."
+
+#: includes/class-valu-cookie-plugin-settings.php:325
+msgid "General"
+msgstr "Yleiset"
+
+#: includes/class-valu-cookie-plugin-settings.php:326
+msgid "Input cookiebot information of site here."
+msgstr "Syötä sivuston Cookiebot-tiedot tähän."
+
+#: includes/class-valu-cookie-plugin-settings.php:330
+msgid "Cookiebot Domain group ID"
+msgstr "Cookiebot Domain group ID"
+
+#: includes/class-valu-cookie-plugin-settings.php:331
+msgid ""
+"Available under the menu point \"Settings\" and the tab \"Your scripts\" in "
+"Cookiebot dashboard."
+msgstr ""
+"Saatavilla valikkokohdassa “Settings” ja välilehdellä ”Your scripts” "
+"Cookiebot-hallintapaneelissa."
+
+#: includes/class-valu-cookie-plugin-settings.php:338
+msgid "Cookiebot Domain"
+msgstr "Cookiebotin verkkotunnus"
+
+#: includes/class-valu-cookie-plugin-settings.php:339
+msgid "Domain name as registered in Cookiebot."
+msgstr "Cookiebotissa määritetty verkkotunnus."
+
+#: includes/class-valu-cookie-plugin-settings.php:346
+msgid "Cookiebot Default Culture"
+msgstr "Cookiebot-oletuskieli"
+
+#: includes/class-valu-cookie-plugin-settings.php:347
+msgid ""
+"Language code matching one of the language variants created on the domain "
+"group. If no matching culture exists in the domain group, the default "
+"language set in Cookiebot will be used."
+msgstr ""
+"Kieli, joka vastaa jotakin domainryhmässä luotua kielivarianttia. Jos "
+"domainryhmässä ei ole vastaavaa kieltä, käytetään Cookiebotiin määritettyä "
+"oletuskieltä."
+
+#: includes/class-valu-cookie-plugin-settings.php:350
+#: includes/class-valu-cookie-plugin.php:155
+msgid "Finnish"
+msgstr "Suomi"
+
+#: includes/class-valu-cookie-plugin-settings.php:354
+msgid "Cookiebot Cultures"
+msgstr "Cookiebot-kielet"
+
+#: includes/class-valu-cookie-plugin-settings.php:355
+msgid ""
+"Language codes matching one of the language variants created on the domain "
+"group. If no matching culture exists in the domain group, the default "
+"language set in Cookiebot will be used."
+msgstr ""
+"Kieli, joka vastaa jotakin Cookiebotin domain-ryhmään luotua "
+"kielivarianttia. Jos domain-ryhmässä ei ole vastaavaa kieltä, käytetään "
+"Cookiebotiin määritettyä oletuskieltä."
+
+#: includes/class-valu-cookie-plugin-settings.php:454
+msgid "Valu Cookie Plugin settings"
+msgstr "Valu Cookie Plugin -asetukset"
+
+#: includes/class-valu-cookie-plugin-settings.php:508
+msgid "Save Settings"
+msgstr "Tallenna asetukset"
+
+#: includes/class-valu-cookie-plugin-settings.php:540
+msgid "Cloning of Valu_Cookie_Plugin_API is forbidden."
+msgstr "Valu_Cookie_Plugin_API kloonaus on kielletty."
+
+#: includes/class-valu-cookie-plugin-settings.php:549
+msgid "Unserializing instances of Valu_Cookie_Plugin_API is forbidden."
+msgstr "Valu_Cookie_Plugin_API esiintymien muuttaminen on kielletty."
+
+#: includes/class-valu-cookie-plugin.php:103
+msgid "Afrikaans"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:106
+msgid "Albanian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:108
+msgid "Arabic"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:119
+msgid "Belarusian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:128
+msgid "Bulgarian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:130
+msgid "Catalan"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:135
+msgid "Chinese"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:140
+msgid "Croatian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:141
+msgid "Czech"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:142
+msgid "Danish"
+msgstr "tanska"
+
+#: includes/class-valu-cookie-plugin.php:145
+msgid "Dutch"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:148
+msgid "English"
+msgstr "englanti"
+
+#: includes/class-valu-cookie-plugin.php:150
+msgid "Estonian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:154
+msgid "Filipino"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:156
+msgid "French"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:159
+msgid "Galician"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:162
+msgid "German"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:163
+msgid "Greek"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:169
+msgid "Hebrew"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:170
+msgid "Hindi"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:171
+msgid "Hungarian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:173
+msgid "Icelandic"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:176
+msgid "Indonesian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:179
+msgid "Irish"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:180
+msgid "Italian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:181
+msgid "Japanese"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:199
+msgid "Korean"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:209
+msgid "Latvian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:211
+msgid "Lithuanian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:219
+msgid "Macedonian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:226
+msgid "Maltese"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:259
+msgid "Persian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:260
+msgid "Polish"
+msgstr "puola"
+
+#: includes/class-valu-cookie-plugin.php:261
+msgid "Portuguese"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:264
+msgid "Romanian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:268
+msgid "Russian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:278
+msgid "Serbian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:285
+msgid "Slovak"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:286
+msgid "Slovenian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:292
+msgid "Spanish"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:294
+msgid "Swahili"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:296
+msgid "Swedish"
+msgstr "ruotsi"
+
+#: includes/class-valu-cookie-plugin.php:307
+msgid "Thai"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:314
+msgid "Turkish"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:316
+msgid "Ukrainian"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:323
+msgid "Vietnamese"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:327
+msgid "Welsh"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:333
+msgid "Yiddish"
+msgstr ""
+
+#: includes/class-valu-cookie-plugin.php:415
+#: includes/class-valu-cookie-plugin.php:443
+msgid "Cookies"
+msgstr "Evästeet"
+
+#: includes/class-valu-cookie-plugin.php:424
+msgid "You do not have rights to observe cookies"
+msgstr "Sinulla ei ole oikeuksia tarkkailla evästeitä"
+
+#: includes/class-valu-cookie-plugin.php:447
+msgid "Language"
+msgstr "Kieli"
+
+#: includes/class-valu-cookie-plugin.php:458
+msgid "Fetching…"
+msgstr "Haetaan tietoja…"
+
+#: includes/class-valu-cookie-plugin.php:479
+msgid "Cookies scanned last"
+msgstr "Evästeet tarkistettu viimeksi"
+
+#: includes/class-valu-cookie-plugin.php:494
+msgid "Necessary"
+msgstr "Välttämättömät"
+
+#: includes/class-valu-cookie-plugin.php:497
+msgid "Preferences"
+msgstr "Mieltymykset"
+
+#: includes/class-valu-cookie-plugin.php:500
+msgid "Statistics"
+msgstr "Tilastointi"
+
+#: includes/class-valu-cookie-plugin.php:503
+msgid "Marketing"
+msgstr "Markkinointi"
+
+#: includes/class-valu-cookie-plugin.php:506
+msgid "Unclassified"
+msgstr "Luokittelemattomat"
+
+#: includes/class-valu-cookie-plugin.php:513
+msgid "Cookie Description"
+msgstr "Evästeen kuvaus"
+
+#: includes/class-valu-cookie-plugin.php:514
+msgid "Cookie Category"
+msgstr "Evästekategoria"
+
+#: includes/class-valu-cookie-plugin.php:515
+msgid "Provider"
+msgstr "Tarjoaja"
+
+#: includes/class-valu-cookie-plugin.php:516
+msgid "First found URL"
+msgstr "Löydetty ensin osoitteesta"
+
+#: includes/class-valu-cookie-plugin.php:518
+msgid " Attention! Cookie has missing description or it is unclassified"
+msgstr "Huomio! Evästeeltä puuttuu joko kuvaus tai luokittelu!"
+
+#: includes/class-valu-cookie-plugin.php:626
+msgid "Cloning of Valu_Cookie_Plugin is forbidden"
+msgstr "Valu_Cookie_Pluginin kloonaus on kielletty"
+
+#: includes/class-valu-cookie-plugin.php:636
+msgid "Unserializing instances of Valu_Cookie_Plugin is forbidden"
+msgstr "Valu_Cookie_Plugin-esiintymien muuttaminen on kielletty"
+
+#. Plugin Name of the plugin/theme
+msgid "Valu Cookie Plugin"
+msgstr "Valu Cookie -laajennus"
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.valu.fi"
+msgstr "https://www.valu.fi"
+
+#. Description of the plugin/theme
+msgid "List cookies used on site via Cookiebot API."
+msgstr "Listaa Cookiebot API:n kautta sivustolla käytetyt evästeet."
+
+#. Author of the plugin/theme
+msgid "Valu Digital Oy"
+msgstr "Valu Digital Oy"
+
+#. Author URI of the plugin/theme
+msgid "https://www.valu.rocks"
+msgstr "https://www.valu.rocks"
+
+#, php-format
+#~ msgid "Site %s has cookies needing attention (%d pcs )"
+#~ msgstr "Sivuston %s on evästeitä, jotka tarvitsevat huomiota (%d kpl)"
+
+#~ msgid "Information not found"
+#~ msgstr "Tietoja ei löydy"
+
+#~ msgid "Site"
+#~ msgstr "Sivusto"
+
+#~ msgid "Choose site"
+#~ msgstr "Valitse sivusto"

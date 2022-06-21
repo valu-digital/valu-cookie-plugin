@@ -1,0 +1,362 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Valu Cookie Plugin\n"
+"POT-Creation-Date: 2021-12-16 09:14+0200\n"
+"PO-Revision-Date: 2021-12-08 10:11+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: valu-cookie-base.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: includes/class-valu-cookie-base-settings.php:131
+#: includes/class-valu-cookie-base-settings.php:132
+msgid "Valu Cookie Base Settings"
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:180
+msgid "Settings"
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:193
+msgid "General"
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:194
+msgid "Input cookiebot information of site here."
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:198
+msgid "Cookiebot API Key"
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:199
+msgid ""
+"The secret API key for your Cookiebot account (available under the menu "
+"point \"Settings\" and the tab \"Your scripts\" on your Cookiebot account)."
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:206
+msgid "Cookiebot Domain group ID"
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:207
+msgid ""
+"Available under the menu point \"Settings\" and the tab \"Your scripts\" in "
+"Cookiebot dashboard."
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:214
+msgid "Cookiebot Domain"
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:215
+msgid "Domain name as registred in Cookiebot."
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:222
+msgid "Cookiebot Culture"
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:223
+msgid ""
+"Language code matching one of the language variants created on the domain "
+"group.\n"
+"If no matching culture exists in the domain group, the default language will "
+"be used.\n"
+"Set to \"default\" if no specific culture is required."
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:324
+msgid "Valu Cookie Base settings"
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:378
+msgid "Save Settings"
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:410
+msgid "Cloning of Valu_Cookie_Base_API is forbidden."
+msgstr ""
+
+#: includes/class-valu-cookie-base-settings.php:419
+msgid "Unserializing instances of Valu_Cookie_Base_API is forbidden."
+msgstr ""
+
+#: includes/class-valu-cookie-base.php:178
+#: includes/class-valu-cookie-dashboard.php:64
+#: includes/class-valu-cookie-dashboard.php:84
+#: includes/class-valu-cookie-dashboard.php:87
+msgid "Error while fetching information"
+msgstr ""
+
+#: includes/class-valu-cookie-base.php:230
+#: includes/class-valu-cookie-base.php:244
+msgid "Cookies"
+msgstr ""
+
+#: includes/class-valu-cookie-base.php:239
+msgid "You do not have rights to observe cookies"
+msgstr ""
+
+#: includes/class-valu-cookie-base.php:400
+#, php-format
+msgid "Site %s has cookies needing attention (%d pcs )"
+msgstr ""
+
+#: includes/class-valu-cookie-base.php:576
+msgid "Cloning of Valu_Cookie_Base is forbidden"
+msgstr ""
+
+#: includes/class-valu-cookie-base.php:586
+msgid "Unserializing instances of Valu_Cookie_Base is forbidden"
+msgstr ""
+
+#: includes/class-valu-cookie-dashboard.php:69
+msgid "Information not found"
+msgstr ""
+
+#: includes/class-valu-cookie-dashboard.php:113
+#: includes/class-valu-cookie-dashboard.php:115
+#: includes/class-valu-cookie-dashboard.php:117
+#, php-format
+msgid "%d days"
+msgstr ""
+
+#: includes/class-valu-cookie-dashboard.php:232
+msgid "How many has selected only necessary cookies?"
+msgstr ""
+
+#: includes/class-valu-cookie-dashboard.php:235
+msgid "Site"
+msgstr ""
+
+#: includes/class-valu-cookie-dashboard.php:237
+msgid "Choose site"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-admin-api.php:169
+msgid "Upload an image"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-admin-api.php:169
+msgid "Use image"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-admin-api.php:169
+msgid "Upload new image"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-admin-api.php:170
+msgid "Remove image"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:104
+#: includes/lib/class-valu-cookie-base-taxonomy.php:106
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:105
+#: includes/lib/class-valu-cookie-base-taxonomy.php:103
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:106
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:107
+#: includes/lib/class-valu-cookie-base-taxonomy.php:102
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:108
+#: includes/lib/class-valu-cookie-base-taxonomy.php:104
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:109
+#: includes/lib/class-valu-cookie-base-taxonomy.php:110
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:110
+#, php-format
+msgid "No %s Found"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:111
+#, php-format
+msgid "No %s Found In Trash"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:112
+#: includes/lib/class-valu-cookie-base-taxonomy.php:108
+#, php-format
+msgid "Parent %s"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:156
+#, php-format
+msgid "%1$s updated. %2$sView %3$s%4$s."
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:157
+msgid "Custom field updated."
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:158
+msgid "Custom field deleted."
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:159
+#, php-format
+msgid "%1$s updated."
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:160
+#, php-format
+msgid "%1$s restored to revision from %2$s."
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:161
+#, php-format
+msgid "%1$s published. %2$sView %3$s%4s."
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:162
+#, php-format
+msgid "%1$s saved."
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:163
+#, php-format
+msgid "%1$s submitted. %2$sPreview post%3$s%4$s."
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:164
+#, php-format
+msgid "%1$s scheduled for: %2$s. %3$sPreview %4$s%5$s."
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:164
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:165
+#, php-format
+msgid "%1$s draft updated. %2$sPreview %3$s%4$s."
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:183
+#, php-format
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %3$s updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:184
+#, php-format
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %3$s not updated, somebody is editing them."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:185
+#, php-format
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %3$s permanently deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:186
+#, php-format
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %3$s moved to the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/lib/class-valu-cookie-base-post-type.php:187
+#, php-format
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %3$s restored from the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/lib/class-valu-cookie-base-taxonomy.php:105
+#, php-format
+msgid "Update %s"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-taxonomy.php:107
+#, php-format
+msgid "New %s Name"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-taxonomy.php:109
+#, php-format
+msgid "Parent %s:"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-taxonomy.php:111
+#, php-format
+msgid "Popular %s"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-taxonomy.php:112
+#, php-format
+msgid "Separate %s with commas"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-taxonomy.php:113
+#, php-format
+msgid "Add or remove %s"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-taxonomy.php:114
+#, php-format
+msgid "Choose from the most used %s"
+msgstr ""
+
+#: includes/lib/class-valu-cookie-base-taxonomy.php:115
+#, php-format
+msgid "No %s found"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Valu Cookie Plugin"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.valu.fi"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "List cookies used on site via Cookiebot API."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Valu Digital Oy"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.valu.rocks"
+msgstr ""
