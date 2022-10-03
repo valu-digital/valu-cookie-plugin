@@ -293,7 +293,7 @@ class Valu_Cookie_Plugin_Settings {
 	 * @return array        Modified links.
 	 */
 	public function add_settings_link( $links ) {
-		$settings_link = '<a href="options-general.php?page=' . $this->parent->_token . '_settings">' . __( 'Settings', 'valu-cookie-plugin' ) . '</a>';
+		$settings_link = '<a href="admin.php?page=' . $this->parent->_token . '_settings">' . __( 'Settings', 'valu-cookie-plugin' ) . '</a>';
 		array_push( $links, $settings_link );
 		return $links;
 	}
