@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Valu Cookie Plugin
- * Version: 0.1.0
+ * Version: 0.1.1
  * Plugin URI: https://www.valu.fi
  * Description: List cookies used on site via Cookiebot API.
  * Author: Valu Digital Oy
