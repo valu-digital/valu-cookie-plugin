@@ -357,7 +357,7 @@ class Valu_Cookie_Plugin_Settings {
 					'label'       => __( 'Cookiebot Cultures', 'valu-cookie-plugin' ),
 					'description' => __( 'Language codes matching one of the language variants created on the domain group. If no matching culture exists in the domain group, the default language set in Cookiebot will be used.', 'valu-cookie-plugin' ),
 					'type'        => 'checkbox_multi',
-					'options'     => Valu_Cookie_Plugin::getCookiebotCultures()
+					'options'     => Valu_Cookie_Plugin::getCookiebotCultures(),
 
 				],
 			],

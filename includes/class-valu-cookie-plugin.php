@@ -374,12 +374,24 @@ class Valu_Cookie_Plugin {
 		if ( $this->can_use_valu_cookie_plugin() ) {
 			add_menu_page( __( 'Cookies', 'valu-cookie-plugin' ), __( 'Cookies', 'valu-cookie-plugin' ), $this->capability, 'valu-cookie-plugin', [
 				$this,
-				'list_cookies'
+				'list_cookies',
 			], 'dashicons-privacy', 800 );
 		}
 	}
 
 	function list_cookies() {
+		$defaultCulture   = get_option( 'valu_cookies_culture' );
+		$selectedCultures = get_option( 'valu_cookies_cultures' );
+		if ( ! $defaultCulture || ! $selectedCultures ) {
+			?>
+			<div class="wrap valu-cookie-plugin-listing">
+				<h2 class="title"><?php esc_html_e( 'Cookies', 'valu-cookie-plugin' ); ?></h2>
+				<p>Määritä asetukset lukeaksesi tietoja</p>
+			</div>
+			<?php
+			return;
+		}
+
 		if ( ! $this->can_use_valu_cookie_plugin() ) {
 			wp_die( esc_html( __( 'You do not have rights to observe cookies', 'valu-cookie-plugin' ) ) );
 		}
@@ -387,15 +399,18 @@ class Valu_Cookie_Plugin {
 		$selectedCultures = get_option( 'valu_cookies_cultures' );
 		$allCultures      = self::getCookiebotCultures();
 		$cultures         = [];
-		foreach ( $selectedCultures as $code ) {
-			$cultures[ $code ] = $allCultures[ $code ];
+
+		if ( is_array( $selectedCultures ) ) {
+			foreach ( $selectedCultures as $code ) {
+				$cultures[ $code ] = $allCultures[ $code ];
+			}
 		}
-		if ( $_GET["culture"] ) {
-			$selectedCulture = sanitize_text_field( $_GET["culture"] );
+
+		if ( filter_input( INPUT_GET, 'culture' ) ) {
+			$selectedCulture = sanitize_text_field( filter_input( INPUT_GET, 'culture' ) );
 		} else {
 			$selectedCulture = $defaultCulture;
 		}
-
 		?>
 
 		<div class="wrap valu-cookie-plugin-listing">
@@ -426,7 +441,7 @@ class Valu_Cookie_Plugin {
                         method: 'GET',
                         url: '/wp-json/valu-cookie-plugin/v1/get?culture=<?php echo esc_attr( $selectedCulture )?>',
                         beforeSend: function (xhr) {
-                            xhr.setRequestHeader('X-WP-Nonce', '<?php echo wp_create_nonce( 'wp_rest' )?>');
+                            xhr.setRequestHeader('X-WP-Nonce', '<?php echo esc_html( wp_create_nonce( 'wp_rest' ) ); ?>');
                         },
                         dataType: 'json',
                     }).done(function (response) {
@@ -451,19 +466,19 @@ class Valu_Cookie_Plugin {
                             let categoryName = "";
                             switch (item.Category) {
                                 case "1":
-                                    categoryName = "<?php echo __( 'Necessary', 'valu-cookie-plugin' );?>";
+                                    categoryName = "<?php echo esc_attr( __( 'Necessary', 'valu-cookie-plugin' ) );?>";
                                     break;
                                 case "2":
-                                    categoryName = "<?php echo __( 'Preferences', 'valu-cookie-plugin' );?>";
+                                    categoryName = "<?php echo esc_attr( __( 'Preferences', 'valu-cookie-plugin' ) );?>";
                                     break;
                                 case "3":
-                                    categoryName = "<?php echo __( 'Statistics', 'valu-cookie-plugin' );?>";
+                                    categoryName = "<?php echo esc_attr( __( 'Statistics', 'valu-cookie-plugin' ) );?>";
                                     break;
                                 case "4":
-                                    categoryName = "<?php echo __( 'Marketing', 'valu-cookie-plugin' );?>";
+                                    categoryName = "<?php echo esc_attr( __( 'Marketing', 'valu-cookie-plugin' ) );?>";
                                     break;
                                 case "5":
-                                    categoryName = "<?php echo __( 'Unclassified', 'valu-cookie-plugin' );?>";
+                                    categoryName = "<?php echo esc_attr( __( 'Unclassified', 'valu-cookie-plugin' ) );?>";
                                     break;
                             }
 

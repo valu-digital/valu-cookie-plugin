@@ -122,7 +122,7 @@ class Valu_Cookieplugin_Dashboard {
 			'optin_14'  => 0,
 			'optout_14' => 0,
 			'optout_7'  => 0,
-			'optin_7'   => 0
+			'optin_7'   => 0,
 		];
 		$returnArray = [ 7 => 0, 14 => 0, 30 => 0 ];
 		$now         = new \DateTime();
@@ -217,7 +217,7 @@ class Valu_Cookieplugin_Dashboard {
                             url: wpApiSettings.root + 'valu-cookiebot-dashboard/v1/get',
                             method: 'GET',
                             beforeSend: function (xhr) {
-                                xhr.setRequestHeader('X-WP-Nonce', '<?php echo wp_create_nonce( 'wp_rest' )?>');
+                                xhr.setRequestHeader('X-WP-Nonce', '<?php echo esc_html( wp_create_nonce( 'wp_rest' ) ); ?>');
                             },
                             data: cookiebotFormData,
                         }).done(function (response) {
