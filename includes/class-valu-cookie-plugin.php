@@ -80,14 +80,14 @@ class Valu_Cookie_Plugin {
 		$this->file = $file;
 
 		// Add menu page
-		add_action( 'admin_menu', array( $this, 'add_menu' ) );
+		add_action( 'admin_menu', [ $this, 'add_menu' ] );
 
 		// Register rest route
-		add_action( 'rest_api_init', array( $this, 'register_rest_routes' ), 0 );
+		add_action( 'rest_api_init', [ $this, 'register_rest_routes' ], 0 );
 
 		// Handle localisation.
 		$this->load_plugin_textdomain();
-		add_action( 'init', array( $this, 'load_localisation' ), 0 );
+		add_action( 'init', [ $this, 'load_localisation' ], 0 );
 	} // End __construct ()
 
 	/**
@@ -96,7 +96,7 @@ class Valu_Cookie_Plugin {
 	 * @return array
 	 */
 	public static function getCookiebotCultures() {
-		$cultures = array(
+		$cultures = [
 			//    "aa" => __('Afar'),
 			"af"  => __( 'Afrikaans' ),
 //            "agq" => __('Aghem'),
@@ -332,7 +332,7 @@ class Valu_Cookie_Plugin {
 //            "yo" => __('Yoruba'),
 //            "dje" => __('Zarma'),
 //            "zu" => __('Zulu')
-		);
+		];
 		asort( $cultures );
 		reset( $cultures );
 
@@ -347,7 +347,7 @@ class Valu_Cookie_Plugin {
 			'methods'             => 'GET',
 			'callback'            => function ( \WP_REST_Request $request ) {
 
-				$site = sanitize_text_field( $request->get_param( 'site' ) );
+				$site    = sanitize_text_field( $request->get_param( 'site' ) );
 				$culture = sanitize_text_field( $request->get_param( 'culture' ) );
 
 				return $this->fetchCookiebotInformation( $culture );
@@ -386,7 +386,7 @@ class Valu_Cookie_Plugin {
 		$defaultCulture   = get_option( 'valu_cookies_culture' );
 		$selectedCultures = get_option( 'valu_cookies_cultures' );
 		$allCultures      = self::getCookiebotCultures();
-		$cultures         = array();
+		$cultures         = [];
 		foreach ( $selectedCultures as $code ) {
 			$cultures[ $code ] = $allCultures[ $code ];
 		}
@@ -400,113 +400,113 @@ class Valu_Cookie_Plugin {
 
 		<div class="wrap valu-cookie-plugin-listing">
 
-			<h2 class="title"><?php esc_html_e( 'Cookies', 'valu-cookie-plugin' );?></h2>
+			<h2 class="title"><?php esc_html_e( 'Cookies', 'valu-cookie-plugin' ); ?></h2>
 
-            <form>
-                <input type="hidden" name="page" value="valu-cookie-plugin">
-                <label for="culture"><?php esc_html_e("Language", 'valu-cookie-plugin' );?></label>
-                <select name="culture">
-	                <?php
-	                foreach ( $cultures as $code => $name ) {
-		                echo "<option value=\"" . esc_attr( $code ) . "\"" . ( $code === $selectedCulture ? " selected=\"selected\"" : "" ) . "\">" . esc_html( $name ) . "</option>\n";
-	                }
-	                ?>
-                </select>
-                <input type="submit" value="<?php esc_html_e('Get', 'valu-cookie-plugin' );?>">
-            </form>
+			<form>
+				<input type="hidden" name="page" value="valu-cookie-plugin">
+				<label for="culture"><?php esc_html_e( "Language", 'valu-cookie-plugin' ); ?></label>
+				<select name="culture">
+					<?php
+					foreach ( $cultures as $code => $name ) {
+						echo "<option value=\"" . esc_attr( $code ) . "\"" . ( $code === $selectedCulture ? " selected=\"selected\"" : "" ) . "\">" . esc_html( $name ) . "</option>\n";
+					}
+					?>
+				</select>
+				<input type="submit" value="<?php esc_html_e( 'Get', 'valu-cookie-plugin' ); ?>">
+			</form>
 
-            <div id="valu-cookie-plugin-list"><?php esc_html_e( 'Fetching…', 'valu-cookie-plugin' ); ?></div>
+			<div id="valu-cookie-plugin-list"><?php esc_html_e( 'Fetching…', 'valu-cookie-plugin' ); ?></div>
 
-            <script>
+			<script>
 
                 const listing = document.querySelector("#valu-cookie-plugin-list");
 
                 jQuery('document').ready(function ($) {
-                        $.ajax({
-                            method: 'GET',
-                            url: '/wp-json/valu-cookie-plugin/v1/get?culture=<?php echo esc_attr($selectedCulture)?>',
-                            beforeSend: function (xhr) {
-                                xhr.setRequestHeader('X-WP-Nonce', '<?php echo wp_create_nonce('wp_rest')?>');
-                            },
-                            dataType: 'json',
-                        }).done(function (response) {
+                    $.ajax({
+                        method: 'GET',
+                        url: '/wp-json/valu-cookie-plugin/v1/get?culture=<?php echo esc_attr( $selectedCulture )?>',
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('X-WP-Nonce', '<?php echo wp_create_nonce( 'wp_rest' )?>');
+                        },
+                        dataType: 'json',
+                    }).done(function (response) {
 
-                            const listing = document.querySelector("#valu-cookie-plugin-list");
-                            var data = JSON.parse(response.data);
-                            let items = data['cookies'];
-                            let last_scan = data['utcscandate'];
-                            let last_scan_date = new Date(last_scan).toLocaleString('fi-FI');
-                            listing.innerHTML = '<div class="valu-cookie-plugin__last-scan"><?php esc_html_e('Cookies scanned last', 'valu-cookie-plugin')?>: ' + last_scan_date  + '</div>';
+                        const listing = document.querySelector("#valu-cookie-plugin-list");
+                        var data = JSON.parse(response.data);
+                        let items = data['cookies'];
+                        let last_scan = data['utcscandate'];
+                        let last_scan_date = new Date(last_scan).toLocaleString('fi-FI');
+                        listing.innerHTML = '<div class="valu-cookie-plugin__last-scan"><?php esc_html_e( 'Cookies scanned last', 'valu-cookie-plugin' )?>: ' + last_scan_date + '</div>';
 
-                            items.map(item => {
+                        items.map(item => {
 
-                                const list = document.getElementById("valu-cookie-plugin-list");
+                            const list = document.getElementById("valu-cookie-plugin-list");
 
-                                if ( item.PurposeDescription.length > 0 ) {
-	                                var desc_class = true;
-                                } else {
-                                    var desc_class = false;
-                                }
+                            if (item.PurposeDescription.length > 0) {
+                                var desc_class = true;
+                            } else {
+                                var desc_class = false;
+                            }
 
-                                let categoryName = "";
-                                switch (item.Category) {
-                                    case "1":
-                                        categoryName = "<?php echo __( 'Necessary', 'valu-cookie-plugin');?>";
-                                        break;
-                                    case "2":
-                                        categoryName = "<?php echo __( 'Preferences', 'valu-cookie-plugin' );?>";
-                                        break;
-                                    case "3":
-                                        categoryName = "<?php echo __( 'Statistics', 'valu-cookie-plugin' );?>";
-                                        break;
-                                    case "4":
-                                        categoryName = "<?php echo __( 'Marketing', 'valu-cookie-plugin' );?>";
-                                        break;
-                                    case "5":
-                                        categoryName = "<?php echo __( 'Unclassified', 'valu-cookie-plugin' );?>";
-                                        break;
-                                }
+                            let categoryName = "";
+                            switch (item.Category) {
+                                case "1":
+                                    categoryName = "<?php echo __( 'Necessary', 'valu-cookie-plugin' );?>";
+                                    break;
+                                case "2":
+                                    categoryName = "<?php echo __( 'Preferences', 'valu-cookie-plugin' );?>";
+                                    break;
+                                case "3":
+                                    categoryName = "<?php echo __( 'Statistics', 'valu-cookie-plugin' );?>";
+                                    break;
+                                case "4":
+                                    categoryName = "<?php echo __( 'Marketing', 'valu-cookie-plugin' );?>";
+                                    break;
+                                case "5":
+                                    categoryName = "<?php echo __( 'Unclassified', 'valu-cookie-plugin' );?>";
+                                    break;
+                            }
 
-                                let dom = "";
-                                dom += '<div class="valu-cookie-plugin-list-item card" data-valu-cookie-category="'+item.Category+'" data-valu-cookie-description="'+ desc_class+'">';
-                                dom += '<div class="valu-cookie-plugin-list-item__name"><h2>' + item.Name + '</h2></div>';
-                                dom += '<div class="valu-cookie-plugin-list-item__description"><label><?php esc_html_e( 'Cookie Description', 'valu-cookie-plugin' )?>: </label><p>' + item.PurposeDescription + '</p></div>';
-                                dom += '<div class="valu-cookie-plugin-list-item__category"><label><?php esc_html_e ( 'Cookie Category', 'valu-cookie-plugin' )?>: </label><p>' + categoryName + '</p></div>';
-                                dom += '<div class="valu-cookie-plugin-list-item__provider"><label><?php esc_html_e ( 'Provider', 'valu-cookie-plugin' )?>: </label><p>' + item.Provider + '</p></div>';
-                                dom += '<div class="valu-cookie-plugin-list-item__first-url"><label><?php esc_html_e ( 'First found URL', 'valu-cookie-plugin' )?>: </label><a href="' + item.FirstURL + '"><p>' + item.FirstURL + '</p></a></div>';
-                                if ( "5" === item.Category || false === desc_class ) {
-                                    dom += '<div class="valu-cookie-plugin-list-item__error"><h3><?php esc_html_e(' Attention! Cookie has missing description or it is unclassified', 'valu-cookie-plugin' )?></h3></div>';
-                                }
-                                dom += '</div>';
-                                list.innerHTML += dom;
-                            });
+                            let dom = "";
+                            dom += '<div class="valu-cookie-plugin-list-item card" data-valu-cookie-category="' + item.Category + '" data-valu-cookie-description="' + desc_class + '">';
+                            dom += '<div class="valu-cookie-plugin-list-item__name"><h2>' + item.Name + '</h2></div>';
+                            dom += '<div class="valu-cookie-plugin-list-item__description"><label><?php esc_html_e( 'Cookie Description', 'valu-cookie-plugin' )?>: </label><p>' + item.PurposeDescription + '</p></div>';
+                            dom += '<div class="valu-cookie-plugin-list-item__category"><label><?php esc_html_e( 'Cookie Category', 'valu-cookie-plugin' )?>: </label><p>' + categoryName + '</p></div>';
+                            dom += '<div class="valu-cookie-plugin-list-item__provider"><label><?php esc_html_e( 'Provider', 'valu-cookie-plugin' )?>: </label><p>' + item.Provider + '</p></div>';
+                            dom += '<div class="valu-cookie-plugin-list-item__first-url"><label><?php esc_html_e( 'First found URL', 'valu-cookie-plugin' )?>: </label><a href="' + item.FirstURL + '"><p>' + item.FirstURL + '</p></a></div>';
+                            if ("5" === item.Category || false === desc_class) {
+                                dom += '<div class="valu-cookie-plugin-list-item__error"><h3><?php esc_html_e( ' Attention! Cookie has missing description or it is unclassified', 'valu-cookie-plugin' )?></h3></div>';
+                            }
+                            dom += '</div>';
+                            list.innerHTML += dom;
                         });
+                    });
                 });
 			</script>
 
 			<style>
 
                 .valu-cookie-plugin-list-item {
-	                max-width: 700px !important;
+                    max-width: 700px !important;
                 }
 
                 .valu-cookie-plugin__last-scan {
-	                padding: 15px 0;
-	                font-weight: bold;
+                    padding: 15px 0;
+                    font-weight: bold;
                 }
 
                 .valu-cookie-plugin-list-item[data-valu-cookie-category="5"],
-                .valu-cookie-plugin-list-item[data-valu-cookie-description="false"]{
+                .valu-cookie-plugin-list-item[data-valu-cookie-description="false"] {
                     border: 3px solid #d63638;
-	                margin-left: 30px;
+                    margin-left: 30px;
                 }
 
                 .valu-cookie-plugin-list-item__provider,
                 .valu-cookie-plugin-list-item__first-url,
                 .valu-cookie-plugin-list-item__description,
-                .valu-cookie-plugin-list-item__category{
+                .valu-cookie-plugin-list-item__category {
                     display: flex;
-	                align-items: center;
+                    align-items: center;
                 }
 
                 .valu-cookie-plugin-list-item__description {
@@ -520,7 +520,7 @@ class Valu_Cookie_Plugin {
 
                 .valu-cookie-plugin-list-item label {
                     margin-right: 7px;
-	                font-weight: bold;
+                    font-weight: bold;
                 }
 			</style>
 
@@ -615,7 +615,7 @@ class Valu_Cookie_Plugin {
 		$group_id = get_option( 'valu_cookies_serial' );
 		$domain   = get_option( 'valu_cookies_domain' );
 		if ( strlen( $group_id ) < 1 || strlen( $api_key ) < 1 || strlen( $domain ) < 1 ) {
-			return array( 'data' => __( 'Error while fetching information', 'valu-cookie-plugin' ) );
+			return [ 'data' => __( 'Error while fetching information', 'valu-cookie-plugin' ) ];
 		}
 
 

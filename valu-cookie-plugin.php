@@ -28,8 +28,8 @@ require_once 'includes/class-valu-cookie-dashboard.php';
 /**
  * Returns the main instance of Valu_Cookie_Plugin to prevent the need to use globals.
  *
- * @since  1.0.0
  * @return object Valu_Cookie_Plugin
+ * @since  1.0.0
  */
 function valu_cookie_plugin() {
 	$instance = Valu_Cookie_Plugin::instance( __FILE__, '1.0.0' );
@@ -40,10 +40,11 @@ function valu_cookie_plugin() {
 
 	return $instance;
 }
+
 valu_cookie_plugin();
 
 Valu\Valu_Cookieplugin_Dashboard::get_instance();
 
-if (class_exists('WP_CLI')) {
-	WP_CLI::add_command( 'valu-cookies', array('Valu_Cookie_Plugin','cliCommand') );
+if ( class_exists( 'WP_CLI' ) ) {
+	WP_CLI::add_command( 'valu-cookies', [ 'Valu_Cookie_Plugin', 'cliCommand' ] );
 }

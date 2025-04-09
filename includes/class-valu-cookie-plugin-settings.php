@@ -48,7 +48,7 @@ class Valu_Cookie_Plugin_Settings {
 	 * @access  public
 	 * @since   1.0.0
 	 */
-	public $settings = array();
+	public $settings = [];
 
 	/**
 	 * Constructor function.
@@ -61,21 +61,21 @@ class Valu_Cookie_Plugin_Settings {
 		$this->base = 'valu_cookies_';
 
 		// Initialise settings.
-		add_action( 'init', array( $this, 'init_settings' ), 11 );
+		add_action( 'init', [ $this, 'init_settings' ], 11 );
 
 		// Register plugin settings.
-		add_action( 'admin_init', array( $this, 'register_settings' ) );
+		add_action( 'admin_init', [ $this, 'register_settings' ] );
 
 		// Add settings page to menu.
-		add_action( 'admin_menu', array( $this, 'add_menu_item' ) );
+		add_action( 'admin_menu', [ $this, 'add_menu_item' ] );
 
 		// Add settings link to plugins page.
 		add_filter(
 			'plugin_action_links_' . plugin_basename( $this->parent->file ),
-			array(
+			[
 				$this,
 				'add_settings_link',
-			)
+			]
 		);
 	}
 
@@ -88,7 +88,7 @@ class Valu_Cookie_Plugin_Settings {
 	 *
 	 * @return string
 	 */
-	public function display_field( $data = array(), $post = null, $echo = true ) {
+	public function display_field( $data = [], $post = null, $echo = true ) {
 
 		// Get field info.
 		if ( isset( $data['field'] ) ) {
@@ -109,7 +109,7 @@ class Valu_Cookie_Plugin_Settings {
 
 			// Get saved field data.
 			$option_name .= $field['id'];
-			$option       = get_post_meta( $post->ID, $field['id'], true );
+			$option      = get_post_meta( $post->ID, $field['id'], true );
 
 			// Get data to display in field.
 			if ( isset( $option ) ) {
@@ -119,7 +119,7 @@ class Valu_Cookie_Plugin_Settings {
 
 			// Get saved option.
 			$option_name .= $field['id'];
-			$option       = get_option( $option_name );
+			$option      = get_option( $option_name );
 
 			// Get data to display in field.
 			if ( isset( $option ) ) {
@@ -271,17 +271,17 @@ class Valu_Cookie_Plugin_Settings {
 	private function menu_settings() {
 		return apply_filters(
 			$this->base . 'menu_settings',
-			array(
+			[
 				'location'    => 'submenu', // Possible settings: options, menu, submenu.
 				'parent_slug' => 'valu-cookie-plugin',
 				'page_title'  => __( 'Valu Cookie Plugin Settings', 'valu-cookie-plugin' ),
 				'menu_title'  => __( 'Valu Cookie Plugin Settings', 'valu-cookie-plugin' ),
 				'capability'  => 'manage_options',
 				'menu_slug'   => $this->parent->_token . '_settings',
-				'function'    => array( $this, 'settings_page' ),
+				'function'    => [ $this, 'settings_page' ],
 				'icon_url'    => '',
 				'position'    => null,
-			)
+			]
 		);
 	}
 
@@ -289,12 +289,14 @@ class Valu_Cookie_Plugin_Settings {
 	/**
 	 * Add settings link to plugin list table
 	 *
-	 * @param  array $links Existing links.
+	 * @param array $links Existing links.
+	 *
 	 * @return array        Modified links.
 	 */
 	public function add_settings_link( $links ) {
 		$settings_link = '<a href="admin.php?page=' . $this->parent->_token . '_settings">' . __( 'Settings', 'valu-cookie-plugin' ) . '</a>';
 		array_push( $links, $settings_link );
+
 		return $links;
 	}
 
@@ -305,14 +307,14 @@ class Valu_Cookie_Plugin_Settings {
 	 */
 	private function settings_fields() {
 
-		$api_key_array = array(
+		$api_key_array = [
 			'id'          => 'cookiebot-api-key',
 			'label'       => __( 'Cookiebot API Key', 'valu-cookie-plugin' ),
 			'description' => __( 'The secret API key for your Cookiebot account (available under the menu point "Settings" and the tab "Your scripts" on your Cookiebot account).', 'valu-cookie-plugin' ),
 			'type'        => 'text',
 			'default'     => '',
 			'placeholder' => __( '', 'valu-cookie-plugin' ),
-		);
+		];
 
 		if ( defined( 'VALU_COOKIEPLUGIN_API_KEY' ) ) {
 			if ( is_scalar( VALU_COOKIEPLUGIN_API_KEY ) ) {
@@ -322,47 +324,47 @@ class Valu_Cookie_Plugin_Settings {
 			}
 		}
 
-		$settings['standard'] = array(
+		$settings['standard'] = [
 			'title'       => __( 'General', 'valu-cookie-plugin' ),
 			'description' => __( 'Input cookiebot information of site here.', 'valu-cookie-plugin' ),
-			'fields'      => array(
-				array(
+			'fields'      => [
+				[
 					'id'          => 'serial',
 					'label'       => __( 'Cookiebot Domain group ID', 'valu-cookie-plugin' ),
 					'description' => __( 'Available under the menu point "Settings" and the tab "Your scripts" in Cookiebot dashboard.', 'valu-cookie-plugin' ),
 					'type'        => 'text',
 					'default'     => '',
 					'placeholder' => __( '', 'valu-cookie-plugin' ),
-				),
-				array(
+				],
+				[
 					'id'          => 'domain',
 					'label'       => __( 'Cookiebot Domain', 'valu-cookie-plugin' ),
 					'description' => __( 'Domain name as registered in Cookiebot.', 'valu-cookie-plugin' ),
 					'type'        => 'text',
 					'default'     => '',
 					'placeholder' => __( '', 'valu-cookie-plugin' ),
-				),
-				array(
+				],
+				[
 					'id'          => 'culture',
 					'label'       => __( 'Cookiebot Default Culture', 'valu-cookie-plugin' ),
 					'description' => __( 'Language code matching one of the language variants created on the domain group. If no matching culture exists in the domain group, the default language set in Cookiebot will be used.', 'valu-cookie-plugin' ),
 					'type'        => 'select',
 					'options'     => Valu_Cookie_Plugin::getCookiebotCultures(),
-					'default'     => __('Finnish'),
-				),
-				array(
+					'default'     => __( 'Finnish' ),
+				],
+				[
 					'id'          => 'cultures',
 					'label'       => __( 'Cookiebot Cultures', 'valu-cookie-plugin' ),
 					'description' => __( 'Language codes matching one of the language variants created on the domain group. If no matching culture exists in the domain group, the default language set in Cookiebot will be used.', 'valu-cookie-plugin' ),
 					'type'        => 'checkbox_multi',
 					'options'     => Valu_Cookie_Plugin::getCookiebotCultures()
 
-					),
-			),
-		);
+				],
+			],
+		];
 
-		if ($api_key_array) {
-			array_unshift($settings['standard']['fields'], $api_key_array);
+		if ( $api_key_array ) {
+			array_unshift( $settings['standard']['fields'], $api_key_array );
 		}
 
 		$settings = apply_filters( $this->parent->_token . '_settings_fields', $settings );
@@ -397,7 +399,7 @@ class Valu_Cookie_Plugin_Settings {
 				}
 
 				// Add section to page.
-				add_settings_section( $section, $data['title'], array( $this, 'settings_section' ), $this->parent->_token . '_settings' );
+				add_settings_section( $section, $data['title'], [ $this, 'settings_section' ], $this->parent->_token . '_settings' );
 
 				foreach ( $data['fields'] as $field ) {
 
@@ -415,13 +417,13 @@ class Valu_Cookie_Plugin_Settings {
 					add_settings_field(
 						$field['id'],
 						$field['label'],
-						array( $this, 'display_field' ),
+						[ $this, 'display_field' ],
 						$this->parent->_token . '_settings',
 						$section,
-						array(
+						[
 							'field'  => $field,
 							'prefix' => $this->base,
-						)
+						]
 					);
 				}
 
@@ -436,6 +438,7 @@ class Valu_Cookie_Plugin_Settings {
 	 * Settings section.
 	 *
 	 * @param array $section Array of section ids.
+	 *
 	 * @return void
 	 */
 	public function settings_section( $section ) {
@@ -451,10 +454,10 @@ class Valu_Cookie_Plugin_Settings {
 	public function settings_page() {
 
 		// Build page HTML.
-		$html      = '<div class="wrap" id="' . $this->parent->_token . '_settings">' . "\n";
-			$html .= '<h2>' . __( 'Valu Cookie Plugin settings', 'valu-cookie-plugin' ) . '</h2>' . "\n";
+		$html = '<div class="wrap" id="' . $this->parent->_token . '_settings">' . "\n";
+		$html .= '<h2>' . __( 'Valu Cookie Plugin settings', 'valu-cookie-plugin' ) . '</h2>' . "\n";
 
-			$tab = '';
+		$tab = '';
 		//phpcs:disable
 		if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
 			$tab .= $_GET['tab'];
@@ -482,7 +485,7 @@ class Valu_Cookie_Plugin_Settings {
 				}
 
 				// Set tab link.
-				$tab_link = add_query_arg( array( 'tab' => $section ) );
+				$tab_link = add_query_arg( [ 'tab' => $section ] );
 				if ( isset( $_GET['settings-updated'] ) ) { //phpcs:ignore
 					$tab_link = remove_query_arg( 'settings-updated', $tab_link );
 				}
@@ -490,26 +493,26 @@ class Valu_Cookie_Plugin_Settings {
 				// Output tab.
 				$html .= '<a href="' . $tab_link . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . "\n";
 
-				++$c;
+				++ $c;
 			}
 
 			$html .= '</h2>' . "\n";
 		}
 
-			$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . "\n";
+		$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . "\n";
 
-				// Get settings fields.
-				ob_start();
-				settings_fields( $this->parent->_token . '_settings' );
-				do_settings_sections( $this->parent->_token . '_settings' );
-				$html .= ob_get_clean();
+		// Get settings fields.
+		ob_start();
+		settings_fields( $this->parent->_token . '_settings' );
+		do_settings_sections( $this->parent->_token . '_settings' );
+		$html .= ob_get_clean();
 
-				$html     .= '<p class="submit">' . "\n";
-					$html .= '<input type="hidden" name="tab" value="' . esc_attr( $tab ) . '" />' . "\n";
-					$html .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings', 'valu-cookie-plugin' ) ) . '" />' . "\n";
-				$html     .= '</p>' . "\n";
-			$html         .= '</form>' . "\n";
-		$html             .= '</div>' . "\n";
+		$html .= '<p class="submit">' . "\n";
+		$html .= '<input type="hidden" name="tab" value="' . esc_attr( $tab ) . '" />' . "\n";
+		$html .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings', 'valu-cookie-plugin' ) ) . '" />' . "\n";
+		$html .= '</p>' . "\n";
+		$html .= '</form>' . "\n";
+		$html .= '</div>' . "\n";
 
 		echo $html; //phpcs:ignore
 	}
@@ -519,16 +522,18 @@ class Valu_Cookie_Plugin_Settings {
 	 *
 	 * Ensures only one instance of Valu_Cookie_Plugin_Settings is loaded or can be loaded.
 	 *
+	 * @param object $parent Object instance.
+	 *
+	 * @return object Valu_Cookie_Plugin_Settings instance
 	 * @since 1.0.0
 	 * @static
 	 * @see Valu_Cookie_Plugin()
-	 * @param object $parent Object instance.
-	 * @return object Valu_Cookie_Plugin_Settings instance
 	 */
 	public static function instance( $parent ) {
 		if ( is_null( self::$_instance ) ) {
 			self::$_instance = new self( $parent );
 		}
+
 		return self::$_instance;
 	} // End instance()
 

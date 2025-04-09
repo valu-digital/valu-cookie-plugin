@@ -60,15 +60,15 @@ class Valu_Cookieplugin_Dashboard {
 
 				$site = intval( $request->get_param( 'site' ) );
 
-				$culture        = get_option( 'valu_cookies_culture' );
-				$group_id       = get_option( 'valu_cookies_serial' );
-				$domain         = get_option( 'valu_cookies_domain' );
+				$culture  = get_option( 'valu_cookies_culture' );
+				$group_id = get_option( 'valu_cookies_serial' );
+				$domain   = get_option( 'valu_cookies_domain' );
 
 				if ( ! $group_id || ! $domain ) {
-					return array( 'data' => __( 'Error while fetching information', 'valu-cookie-plugin' ) );
+					return [ 'data' => __( 'Error while fetching information', 'valu-cookie-plugin' ) ];
 				}
 				if ( strlen( $domain ) < 1 || strlen( $group_id ) < 1 ) {
-					return array( 'data' => __( 'Error while fetching information', 'valu-cookie-plugin' ) );
+					return [ 'data' => __( 'Error while fetching information', 'valu-cookie-plugin' ) ];
 				}
 
 				$start_date = date( 'Ymd', strtotime( '-30 days' ) );
@@ -83,7 +83,7 @@ class Valu_Cookieplugin_Dashboard {
 					}
 				}
 				if ( false === ( $response_body = get_transient( 'valu_cookiebot_' . $site ) ) ) {
-					$response     = wp_remote_get( 'https://consent.cookiebot.com/api/v1/' . $api_key . '/json/domaingroup/' . $group_id . '/domain/' . $domain . '/consent/stats?' . 'startdate=' . $start_date . '&enddate=' . $end_date );
+					$response      = wp_remote_get( 'https://consent.cookiebot.com/api/v1/' . $api_key . '/json/domaingroup/' . $group_id . '/domain/' . $domain . '/consent/stats?' . 'startdate=' . $start_date . '&enddate=' . $end_date );
 					$response_body = wp_remote_retrieve_body( $response );
 					set_transient( 'valu_cookiebot_' . $site, $response_body, 120 );
 				}
@@ -116,15 +116,15 @@ class Valu_Cookieplugin_Dashboard {
 	 * @return int[] Array of containing calculated data
 	 */
 	static function parseConsentData( $data ) {
-		$tempData    = array(
+		$tempData    = [
 			'optin_30'  => 0,
 			'optout_30' => 0,
 			'optin_14'  => 0,
 			'optout_14' => 0,
 			'optout_7'  => 0,
 			'optin_7'   => 0
-		);
-		$returnArray = array( 7 => 0, 14 => 0, 30 => 0 );
+		];
+		$returnArray = [ 7 => 0, 14 => 0, 30 => 0 ];
 		$now         = new \DateTime();
 		foreach ( $data['consentstat']['consentday'] as $dateData ) {
 			$date     = \DateTime::createFromFormat( 'Y-m-d\TH:i:s', $dateData['Date'] );
@@ -191,20 +191,20 @@ class Valu_Cookieplugin_Dashboard {
 		$group_id = get_option( 'valu_cookies_serial' );
 		$domain   = get_option( 'valu_cookies_domain' );
 		if ( $group_id && $domain ) {
-        ?>
+			?>
 
-            <form id="valu-cookiebot-dashboard-form" method="post">
-                <div class="input-text-wrap valu-cookiebot-dashboard-input-wrap">
-                    <?php esc_html_e("How many has selected only necessary cookies?", 'valu-cookie-plugin' ); ?>
-                </div>
+			<form id="valu-cookiebot-dashboard-form" method="post">
+				<div class="input-text-wrap valu-cookiebot-dashboard-input-wrap">
+					<?php esc_html_e( "How many has selected only necessary cookies?", 'valu-cookie-plugin' ); ?>
+				</div>
 
-                <input class="valu-cookiebot-dashboard-submit button button-primary valu-cookiebot-dashboard-input-wrap"
-                       type="submit" value="<?php esc_attr_e("Get", 'valu-cookie-plugin' ); ?>">
-            </form>
-            <div id="valu-cookiebot-response"></div>
+				<input class="valu-cookiebot-dashboard-submit button button-primary valu-cookiebot-dashboard-input-wrap"
+				       type="submit" value="<?php esc_attr_e( "Get", 'valu-cookie-plugin' ); ?>">
+			</form>
+			<div id="valu-cookiebot-response"></div>
 
 
-            <script>
+			<script>
                 jQuery('document').ready(function ($) {
 
                     $('#valu-cookiebot-dashboard-form').on('submit', function (e) {
@@ -217,7 +217,7 @@ class Valu_Cookieplugin_Dashboard {
                             url: wpApiSettings.root + 'valu-cookiebot-dashboard/v1/get',
                             method: 'GET',
                             beforeSend: function (xhr) {
-                                xhr.setRequestHeader('X-WP-Nonce', '<?php echo wp_create_nonce('wp_rest')?>');
+                                xhr.setRequestHeader('X-WP-Nonce', '<?php echo wp_create_nonce( 'wp_rest' )?>');
                             },
                             data: cookiebotFormData,
                         }).done(function (response) {
@@ -225,9 +225,9 @@ class Valu_Cookieplugin_Dashboard {
                         });
                     });
                 });
-            </script>
+			</script>
 
-            <style>
+			<style>
                 .valu-cookiebot-dashboard-input-wrap {
                     margin-bottom: 12px;
                 }
@@ -235,9 +235,9 @@ class Valu_Cookieplugin_Dashboard {
                 #valu-cookiebot-response {
                     margin-top: 12px;
                 }
-            </style>
+			</style>
 
-		<?php
+			<?php
 		}
 	}
 

@@ -1,16 +1,18 @@
 {
-	"name": "valudigital/valu-cookie-plugin",
-	"type": "wordpress-plugin",
-	"license": "GPL-2.0-or-later",
-	"description": "Wordpress plugin to view Cookiebot cookies",
-	"keywords": [
-		"wordpress", "wp", "cookies"
-	],
-	"require": {
-		"php": ">=7.0"
+    "name": "valudigital/valu-cookie-plugin",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "description": "Wordpress plugin to view Cookiebot cookies",
+    "keywords": [
+        "wordpress",
+        "wp",
+        "cookies"
+    ],
+    "require": {
+        "php": ">=7.0"
     },
-	"require-dev": {
+    "require-dev": {
         "wp-coding-standards/wpcs": "2.1.*",
-		"squizlabs/php_codesniffer": "^3.3.1"
-	}
+        "squizlabs/php_codesniffer": "^3.3.1"
+    }
 }
