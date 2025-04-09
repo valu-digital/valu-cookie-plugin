@@ -353,7 +353,7 @@ class Valu_Cookie_Plugin {
 				return $this->fetchCookiebotInformation( $culture );
 
 			},
-			'permission_callback' => $this->can_use_valu_cookie_plugin(),
+			'permission_callback' => [ $this, 'can_use_valu_cookie_plugin' ],
 		] );
 	}
 
